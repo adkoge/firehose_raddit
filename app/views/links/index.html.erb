@@ -3,5 +3,6 @@
 <% @links.each do |link| %>
   <h2><%= link_to link.title, link %></h2>
   <p><%= link.url %></p>
+  <p><%= link_to "Edit", edit_link_path(link) %>
   <hr />
 <% end %>
