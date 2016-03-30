@@ -4,8 +4,11 @@
   <h2><%= link_to link.title, link %></h2>
   <p><%= link.url %></p>
   <p>
+    <%= link_to "Show", link_path(link) %> |
     <%= link_to "Edit", edit_link_path(link) %> |
     <%= link_to "Delete", link, :confirm => "Are you sure?", :method => :delete %>
   </p>
   <hr />
 <% end %>
+
+<h2><%= link_to "Add New Link", new_link_path %></h2>
