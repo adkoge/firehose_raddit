@@ -1,4 +1,5 @@
 class LinksController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @links = Link.all
@@ -13,7 +14,7 @@ class LinksController < ApplicationController
   end
 
   def create
-    @link = Link.create(link_params)
+    @link = current_user.links.create(link_params)
 
     if @link.save
       redirect_to links_path, :notice => "Your link has been added"
